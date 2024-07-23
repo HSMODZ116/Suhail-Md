@@ -23,14 +23,19 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install libraries
+    - name: Install dependencies
       run: npm install
 
+    - name: Start Node.js application
+      run: |
+        npm start &
+        sleep 24h
+        
     - name: Start Suhail-Md
     
       env:
           OWNER_NAME: 
           OWNER_NUMBER:
           SESSION_ID:
-
+          
       run: npm start
